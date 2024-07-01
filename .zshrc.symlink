@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export LTAGS="firewall,reference_firewall,backups_firewall,cpugovernor,innernet,users,dns,ns1,sync_epoch_rewards"
 alias run="./run.sh --skip-tags=$LTAGS --diff -l"
 s() {
-        ~/Git/rpcpool/vault-ssh.sh "$1.rpcpool.wg"
+        ~/workspaces/rpcpool/vault-ssh.sh "$1.rpcpool.wg"
 }
 
 ZSH_THEME="myRobbyRussell"
