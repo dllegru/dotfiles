@@ -1,0 +1,21 @@
+export PATH=$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/go/bin:$PATH
+
+alias sudo="sudo "
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+export LTAGS="firewall,reference_firewall,backups_firewall,cpugovernor,innernet,users,dns,ns1,sync_epoch_rewards"
+alias run="./run.sh --skip-tags=$LTAGS --diff -l"
+s() {
+        ~/Git/rpcpool/vault-ssh.sh "$1.rpcpool.wg"
+}
+
+ZSH_THEME="myRobbyRussell"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
