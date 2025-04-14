@@ -11,7 +11,7 @@ export LC_ALL=en_US.UTF-8
 export ZSH="$HOME/.oh-my-zsh"
 
 export LTAGS="firewall,reference_firewall,backups_firewall,innernet,users,dns,ns1,sync_epoch_rewards"
-alias run="./run.sh --skip-tags=$LTAGS --diff -l"
+alias run="./run-rd.sh --skip-tags=$LTAGS --diff -l"
 
 s() {
         /workspaces/rpcpool/vault-ssh.sh "$1.rpcpool.wg"
