@@ -59,4 +59,3 @@ bind -n M-Down select-pane -D
 
 # Bind key to sincronize windows -n is used to avoid using prefix when running de command
 bind -n C-s set-window-option synchronize-panes
-
