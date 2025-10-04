@@ -1,7 +1,5 @@
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/go/bin:$PATH
 
-alias sudo="sudo "
-
 # Set locale
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
@@ -9,6 +7,35 @@ export LC_ALL=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# Enable plugins
+plugins=(
+    git             # Git integration and aliases
+    history         # History search and management
+    fzf
+    zsh-autosuggestions  # Fish-like autosuggestions
+    zsh-syntax-highlighting  # Fish-like syntax highlighting
+)
+
+# Load Oh My Zsh
+source $ZSH/oh-my-zsh.sh
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# History configuration
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+setopt SHARE_HISTORY          # Share history between all sessions
+setopt HIST_EXPIRE_DUPS_FIRST # Delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt HIST_IGNORE_DUPS       # Don't record an entry that was just recorded again
+setopt HIST_IGNORE_ALL_DUPS   # Delete old recorded entry if new entry is a duplicate
+setopt HIST_FIND_NO_DUPS      # Do not display a line previously found
+setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history file
+
+# Enable autocompletion
+autoload -Uz compinit
+compinit
 
 export LTAGS="firewall,reference_firewall,backups_firewall,innernet,users,dns,ns1,sync_epoch_rewards"
 alias run="./run-rd.sh --skip-tags=$LTAGS --diff -l"
@@ -39,15 +66,10 @@ ppp() {
   ping "$@".nodes.rpcpool.com
 }
 
-ZSH_THEME="myRobbyRussell"
-
 # FZF
 alias f="fzf"
 export FZF_DEFAULT_COMMAND='fd . / --hidden --exclude ".git" --exclude "/proc" --exclude "/sys" --exclude "/dev" --exclude "/run" --exclude "/tmp" --exclude "/var/tmp" --exclude "/var/cache" --exclude "/var/lib"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-plugins=(git fzf)
-
 source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="$HOME/.nvm"
@@ -55,3 +77,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source /workspaces/rpcpool/.devcontainer/bashrc.sh
+

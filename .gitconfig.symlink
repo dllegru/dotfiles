@@ -1,0 +1,11 @@
+[user]
+	name = Daniel Urgell
+	email = urgell.d@gmail.com
+
+[alias]
+        unpushed = log --branches --not --remotes=origin --no-walk --decorate --oneline
+        unstage = reset HEAD --
+        last = log -1 HEAD
+
+[push]
+        autoSetupRemote = true
