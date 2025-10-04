@@ -14,7 +14,29 @@ export LTAGS="firewall,reference_firewall,backups_firewall,innernet,users,dns,ns
 alias run="./run-rd.sh --skip-tags=$LTAGS --diff -l"
 
 s() {
-        /workspaces/rpcpool/vault-ssh.sh "$1.rpcpool.wg"
+ local host=$1
+ echo -ne "\033]0;💿 $host\007"
+ ./vault-ssh.sh "$@".rpcpool.wg -t /bin/sh "command -v tmux &>/dev/null || tmux new -A -s $(whoami) || $SHELL -l"
+}
+
+ss() {
+ local host=$1
+ echo -ne "\033]0;💿 $host\007"
+ ./vault-ssh.sh "$@".rpcpool.wg
+}
+
+sss() {
+ local host=$1
+ echo -ne "\033]0;💿 $host\007"
+ ./vault-ssh.sh danielurgell@"$@".nodes.rpcpool.com
+}
+
+pp() {
+  ping "$@".rpcpool.wg
+}
+
+ppp() {
+  ping "$@".nodes.rpcpool.com
 }
 
 ZSH_THEME="myRobbyRussell"
